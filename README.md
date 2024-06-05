@@ -6,6 +6,30 @@ This project aims to implement a multi-threaded server with meaningful requests 
 - Create Folders: Organize our project into logical folders such as include for header files, src for source files, and logs for log files.
 - CMakeLists.txt: Create a CMakeLists.txt file to configure project build. This file specifies the project name, source files, include directories, and any dependencies.
 
+```sh
+  server/
+├── include/
+│   ├── Server.hpp
+│   ├── Task.hpp
+│   ├── TaskQueue.hpp
+│   ├── ThreadPool.hpp
+│   ├── FileDownloadTask.hpp
+│   ├── FileUploadTask.hpp
+│   └── ShellCommandTask.hpp
+├── src/
+│   ├── main.cpp
+│   ├── Server.cpp
+│   ├── Task.cpp
+│   ├── TaskQueue.cpp
+│   ├── ThreadPool.cpp
+│   ├── FileDownloadTask.cpp
+│   ├── FileUploadTask.cpp
+│   └── ShellCommandTask.cpp
+└── logs/
+    └── server.log
+```
+
+
 ## Step 2: Header Files 
 - Task.hpp: Define the base Task class with virtual methods to represent different types of tasks that the server can handle.
 - TaskQueue.hpp: Define the TaskQueue class to manage a queue of tasks. Include necessary headers like <mutex> for thread safety.
