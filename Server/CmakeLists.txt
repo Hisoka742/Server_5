@@ -1,0 +1,31 @@
+set(CMAKE_CXX_STANDARD 11)
+
+# Include directories
+include_directories(include)
+
+# Add source files
+set(SOURCE_FILES
+    src/main.cpp
+    src/Server.cpp
+    src/Task.cpp
+    src/TaskQueue.cpp
+    src/ThreadPool.cpp
+    src/FileDownloadTask.cpp
+    src/FileUploadTask.cpp
+    src/ShellCommandTask.cpp
+)
+
+# Add spdlog directly to your project using FetchContent
+include(FetchContent)
+FetchContent_Declare(
+  spdlog
+  GIT_REPOSITORY https://github.com/gabime/spdlog.git
+  GIT_TAG v1.9.2 # Or specify the version you want to use
+)
+FetchContent_MakeAvailable(spdlog)
+
+# Create executable
+add_executable(server ${SOURCE_FILES})
+
+# Link libraries
+target_link_libraries(server PRIVATE spdlog::spdlog)
